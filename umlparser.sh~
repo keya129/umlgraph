@@ -1,0 +1,7 @@
+cpath=$1
+fileName=$2
+java -cp . MainParser $cpath
+java -cp . AssociationParser
+cd Duplicate
+javadoc -docletpath /usr/local/lib/UmlGraph.jar -doclet org.umlgraph.doclet.UmlGraph -private *.java
+dot -Tpng -o$cpath/$fileName.png graph.dot
